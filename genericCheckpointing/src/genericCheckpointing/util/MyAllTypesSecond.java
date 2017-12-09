@@ -35,6 +35,10 @@ public class MyAllTypesSecond extends SerializableObject{
 		this.myCharT = myCharTIn;
 	}
 	
+	public MyAllTypesSecond() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public double getMyDoubleT() {
 		return myDoubleT;
 	}

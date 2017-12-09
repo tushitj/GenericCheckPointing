@@ -35,6 +35,9 @@ public class MyAllTypesFirst extends SerializableObject{
 		
 	}
 	
+	public MyAllTypesFirst() {
+	}
+
 	public int getMyInt() {
 		return myInt;
 	}
@@ -115,7 +118,7 @@ public class MyAllTypesFirst extends SerializableObject{
 	@Override
 	public String toString() {
 		return "MyAllTypesFirst [myInt=" + myInt + ", myOtherInt=" + myOtherInt + ", myLong=" + myLong
-				+ ", myOtherLong=" + myOtherLong + ", myString=" + myString + ", myBool=" + myBool + "]\n";
+				+ ", myOtherLong=" + myOtherLong + ", myString=" + myString + ", myBool=" + myBool + "]";
 	}
 	
 	
