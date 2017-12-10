@@ -1,31 +1,13 @@
 package genericCheckpointing.util;
-//
-//<DPSerialization>
-//<complexType xsi:type="genericCheckpointing.util.MyAllTypesSecond">
 
-// <myDoubleT xsi:type="xsd:double">3.1459</myDoubleT>
-
-//   <myOtherDoubleT xsi:type="xsd:double">3.145</myOtherDoubleT>
-
-// <myFloatT xsi:type="xsd:float">3145.9</myFloatT>
-
-// <myShortT xsi:type="xsd:short">314</myShortT>
-
-// <myOtherShortT xsi:type="xsd:short">314</myOtherShortT>
-
-// <myCharT xsi:type="xsd:char">P</myCharT>
-
-//</complexType>
-//</DPSerialization>
 public class MyAllTypesSecond extends SerializableObject{
-
 	private double myDoubleT;
 	private double myOtherDoubleT;
 	private float myFloatT;
 	private short myShortT;
 	private short myOtherShortT;
 	private char myCharT;
-	
+
 	public MyAllTypesSecond(double myDoubleTIn, double myOtherDoubleTIn, float myFloatTIn, short myShortTIn, short myOtherShortTIn, char myCharTIn) {
 		this.myDoubleT = myDoubleTIn;
 		this.myOtherDoubleT = myOtherDoubleTIn;
@@ -34,45 +16,43 @@ public class MyAllTypesSecond extends SerializableObject{
 		this.myOtherShortT = myOtherShortTIn;
 		this.myCharT = myCharTIn;
 	}
-	
 	public MyAllTypesSecond() {
-		// TODO Auto-generated constructor stub
+		
 	}
-
-	public double getMyDoubleT() {
+	public double getmyDoubleT() {
 		return myDoubleT;
 	}
-	public void setMyDoubleT(double myDoubleT) {
+	public void setmyDoubleT(double myDoubleT) {
 		this.myDoubleT = myDoubleT;
 	}
-	public double getMyOtherDoubleT() {
+	public double getmyOtherDoubleT() {
 		return myOtherDoubleT;
 	}
-	public void setMyOtherDoubleT(double myOtherDoubleT) {
+	public void setmyOtherDoubleT(double myOtherDoubleT) {
 		this.myOtherDoubleT = myOtherDoubleT;
 	}
-	public float getMyFloatT() {
+	public float getmyFloatT() {
 		return myFloatT;
 	}
-	public void setMyFloatT(float myFloatT) {
+	public void setmyFloatT(float myFloatT) {
 		this.myFloatT = myFloatT;
 	}
-	public short getMyShortT() {
+	public short getmyShortT() {
 		return myShortT;
 	}
-	public void setMyShortT(short myShortT) {
+	public void setmyShortT(short myShortT) {
 		this.myShortT = myShortT;
 	}
-	public short getMyOtherShortT() {
+	public short getmyOtherShortT() {
 		return myOtherShortT;
 	}
-	public void setMyOtherShortT(short myOtherShortT) {
+	public void setmyOtherShortT(short myOtherShortT) {
 		this.myOtherShortT = myOtherShortT;
 	}
-	public char getMyCharT() {
+	public char getmyCharT() {
 		return myCharT;
 	}
-	public void setMyCharT(char myCharT) {
+	public void setmyCharT(char myCharT) {
 		this.myCharT = myCharT;
 	}
 	@Override
@@ -90,7 +70,6 @@ public class MyAllTypesSecond extends SerializableObject{
 		result = prime * result + myShortT;
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -114,12 +93,10 @@ public class MyAllTypesSecond extends SerializableObject{
 			return false;
 		return true;
 	}
-	
 	@Override
 	public String toString() {
 		return "MyAllTypesSecond [myDoubleT=" + myDoubleT + ", myOtherDoubleT=" + myOtherDoubleT + ", myFloatT="
 				+ myFloatT + ", myShortT=" + myShortT + ", myOtherShortT=" + myOtherShortT + ", myCharT=" + myCharT
 				+ "]";
 	}
-	
 }

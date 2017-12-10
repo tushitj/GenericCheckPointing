@@ -1,30 +1,13 @@
 package genericCheckpointing.util;
-//
-//
-//<DPSerialization>
-//<complexType xsi:type="genericCheckpointing.util.MyAllTypesFirst">
-// <myInt xsi:type="xsd:int">314</myInt>
-// <myOtherInt xsi:type="xsd:int">3141</myOtherInt>
 
-// <myLong xsi:type="xsd:long">314159</myLong>
-
-//  <myOtherLong xsi:type="xsd:long">31415</myOtherLong>
-
-// <myString xsi:type="xsd:string">Design Patterns</myString>
-
-// <myBool xsi:type="xsd:boolean">false</myBool>
-
-//</complexType>
-//</DPSerialization>
 public class MyAllTypesFirst extends SerializableObject{
-	
 	private int myInt;
 	private int myOtherInt;
 	private long myLong;
 	private long myOtherLong;
 	private String myString;
 	private boolean myBool;
-	
+
 	public MyAllTypesFirst(int myIntIn, int myOtherIntIn, long myLongIn, long myOtherLongIn, String myStringIn, boolean myBoolIn) {
 		this.myInt = myIntIn;
 		this.myOtherInt = myOtherIntIn;
@@ -32,49 +15,46 @@ public class MyAllTypesFirst extends SerializableObject{
 		this.myOtherLong = myLongIn;
 		this.myString = myStringIn;
 		this.myBool = myBoolIn;
+	}
+	public MyAllTypesFirst() {
 		
 	}
-	
-	public MyAllTypesFirst() {
-	}
-
-	public int getMyInt() {
+	public int getmyInt() {
 		return myInt;
 	}
-	public void setMyInt(int myInt) {
+	public void setmyInt(int myInt) {
 		this.myInt = myInt;
 	}
-	public int getMyOtherInt() {
+	public int getmyOtherInt() {
 		return myOtherInt;
 	}
-	public void setMyOtherInt(int myOtherInt) {
+	public void setmyOtherInt(int myOtherInt) {
 		this.myOtherInt = myOtherInt;
 	}
-	public long getMyLong() {
+	public long getmyLong() {
 		return myLong;
 	}
-	public void setMyLong(long myLong) {
+	public void setmyLong(long myLong) {
 		this.myLong = myLong;
 	}
-	public long getMyOtherLong() {
+	public long getmyOtherLong() {
 		return myOtherLong;
 	}
-	public void setMyOtherLong(long myOtherLong) {
+	public void setmyOtherLong(long myOtherLong) {
 		this.myOtherLong = myOtherLong;
 	}
-	public String getMyString() {
+	public String getmyString() {
 		return myString;
 	}
-	public void setMyString(String myString) {
+	public void setmyString(String myString) {
 		this.myString = myString;
 	}
-	public boolean isMyBool() {
+	public boolean ismyBool() {
 		return myBool;
 	}
-	public void setMyBool(boolean myBool) {
+	public void setmyBool(boolean myBool) {
 		this.myBool = myBool;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -114,13 +94,9 @@ public class MyAllTypesFirst extends SerializableObject{
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		return "MyAllTypesFirst [myInt=" + myInt + ", myOtherInt=" + myOtherInt + ", myLong=" + myLong
 				+ ", myOtherLong=" + myOtherLong + ", myString=" + myString + ", myBool=" + myBool + "]";
 	}
-	
-	
-	
 }

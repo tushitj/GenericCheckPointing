@@ -1,0 +1,30 @@
+<DPSerialization>
+  <complexType xsi:type="class genericCheckpointing.util.MyAllTypesFirst">
+    <myInt xsi:type="xsd:int">1</myInt>
+    <myOtherInt xsi:type="xsd:int">2</myOtherInt>
+    <myLong xsi:type="xsd:long">123456789</myLong>
+    <myOtherLong xsi:type="xsd:long">123456789</myOtherLong>
+    <myString xsi:type="xsd:string">Tushit</myString>
+    <myBool xsi:type="xsd:null">true</myBool>
+  </complexType>
+</DPSerialization>
+<DPSerialization>
+  <complexType xsi:type="class genericCheckpointing.util.MyAllTypesFirst">
+    <myInt xsi:type="xsd:int">1</myInt>
+    <myOtherInt xsi:type="xsd:int">2</myOtherInt>
+    <myLong xsi:type="xsd:long">123456789</myLong>
+    <myOtherLong xsi:type="xsd:long">123456789</myOtherLong>
+    <myString xsi:type="xsd:string">Tushit</myString>
+    <myBool xsi:type="xsd:null">true</myBool>
+  </complexType>
+</DPSerialization>
+<DPSerialization>
+  <complexType xsi:type="class genericCheckpointing.util.MyAllTypesFirst">
+    <myInt xsi:type="xsd:int">1</myInt>
+    <myOtherInt xsi:type="xsd:int">2</myOtherInt>
+    <myLong xsi:type="xsd:long">123456789</myLong>
+    <myOtherLong xsi:type="xsd:long">123456789</myOtherLong>
+    <myString xsi:type="xsd:string">Tushit</myString>
+    <myBool xsi:type="xsd:null">true</myBool>
+  </complexType>
+</DPSerialization>
