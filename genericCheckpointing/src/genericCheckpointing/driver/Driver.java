@@ -13,6 +13,7 @@ import genericCheckpointing.util.RandomGenerator;
 import genericCheckpointing.util.Results;
 import genericCheckpointing.util.SerializableObject;
 import genericCheckpointing.xmlStoreRestore.StoreRestoreHandler;
+import sun.net.NetworkServer;
 
 public class Driver {
 
@@ -31,35 +32,50 @@ public class Driver {
 		StoreRestoreI cpointRef = (StoreRestoreI) pc.createProxy(new Class[] { StoreI.class, RestoreI.class },
 				storeRestoreHandler);
 		if(mode.equals("serdeser")) {
-			for(int i=1;i< NUM_OF_OBJECTS;i++) {
+			for(int i=0;i< NUM_OF_OBJECTS;i++) {
 				MyAllTypesFirst myFirst;
 				MyAllTypesSecond mySecond;
-				myFirst = new MyAllTypesFirst(i+10, i+3+5, RandomGenerator.randomLong(i), RandomGenerator.randomLong(i*2), RandomGenerator.randomString(), RandomGenerator.randomBool());
-				mySecond = new MyAllTypesSecond(RandomGenerator.randomDouble(), RandomGenerator.randomDouble(), RandomGenerator.randomFloat(), RandomGenerator.randomShort(i), RandomGenerator.randomShort(i*3), RandomGenerator.randomChar());
+				myFirst = new MyAllTypesFirst(i+10, i*3+5, RandomGenerator.randomLong(i)%(i+3), RandomGenerator.randomLong(i*2)%(i+1), RandomGenerator.randomString(), RandomGenerator.randomBool());
+				mySecond = new MyAllTypesSecond((RandomGenerator.randomDouble() + 100)%5 , (RandomGenerator.randomDouble()+55)%9, (RandomGenerator.randomFloat()+99)%34, RandomGenerator.randomShort(i), RandomGenerator.randomShort(i*3), RandomGenerator.randomChar());
 				oldObjects.add(myFirst);
 				oldObjects.add(mySecond);				
 				((StoreI) cpointRef).writeObj(myFirst,1, "XML");
 				((StoreI) cpointRef).writeObj(mySecond,1, "XML");
 			}
-
-		}
-
-		
-		else if(mode.equals("deser")) {
+			result.writeToStdout(null);
+			result.writeToFile(outputFileName);
 			
-			for(int i=0;i<NUM_OF_OBJECTS;i++) {
-			SerializableObject obj = ((RestoreI) cpointRef).readObj("XML");
-			newObjects.add(obj);
-		}
-		}
-		
-		for(int i=0;i<NUM_OF_OBJECTS;i++) {
-			System.out.println("OLD OBJECTS  " +oldObjects.get(i).toString());
-			
-			System.out.println("NEW OBJECTS  " +newObjects.get(i).toString());
-			
+			for(int i=0;i<2*NUM_OF_OBJECTS;i++) {
+				SerializableObject obj = ((RestoreI) cpointRef).readObj("XML");
+				newObjects.add(obj);
 			}
-		result.writeToFile(outputFileName);
+			
+	         int mismatch=0;
+	         for( int i=0;i< oldObjects.size();i++){
+	            if(!(oldObjects.get(i).equals(newObjects.get(i))))
+	                mismatch++;
+	         }
+	         if(mismatch==0)
+	             System.out.print("\n\n0 mismatched objects"+ mismatch);
+	             else
+	             System.out.print("\n\nTotal mismatched objects:"+ mismatch);
+		}
+
+		
+//		else if(mode.equals("deser")) {
+//			
+//			for(int i=0;i<NUM_OF_OBJECTS;i++) {
+//			SerializableObject obj = ((RestoreI) cpointRef).readObj("XML");
+//			newObjects.add(obj);
+//		}
+//		}
+		
+//		for(int i=0;i<NUM_OF_OBJECTS;i++) {
+//			System.out.println("OLD OBJECTS  " +oldObjects.get(i).toString());
+//			
+//			System.out.println("NEW OBJECTS  " +newObjects.get(i).toString());
+//			
+//			}
 	}
 	}
 
