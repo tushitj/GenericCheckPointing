@@ -53,6 +53,7 @@ public class Results {
             e.printStackTrace();
         } finally {
             out.close();
+            
         }
     }
 

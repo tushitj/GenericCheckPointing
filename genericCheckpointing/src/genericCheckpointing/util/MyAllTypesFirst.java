@@ -6,7 +6,7 @@ public class MyAllTypesFirst extends SerializableObject{
 	private long myLong;
 	private long myOtherLong;
 	private String myString;
-	private boolean myBool;
+	private boolean myBool = false;
 
 	public MyAllTypesFirst(int myIntIn, int myOtherIntIn, long myLongIn, long myOtherLongIn, String myStringIn, boolean myBoolIn) {
 		this.myInt = myIntIn;

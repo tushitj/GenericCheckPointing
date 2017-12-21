@@ -8,12 +8,11 @@ import java.lang.reflect.Constructor;
 import genericCheckpointing.util.FileProcessor;
 import genericCheckpointing.util.SerializableObject;
 
-public class XMLDeSerializationStrategy {
+public class XMLDeSerializationStrategy implements SerStrategy {
 
 	public SerializableObject deSerializeObject(FileProcessor file) {
 		SerializableObject record = new SerializableObject();
-		String line = null;
-		line = file.readLine();
+		String line = file.readLine();
 		Class<?> cls;
 		String[] myArray;
 		String className = null;
@@ -21,7 +20,7 @@ public class XMLDeSerializationStrategy {
 		String dataType;
 		String fieldValue = null;
 		ArrayList<String> parameters = new ArrayList<String>();
-		while (!line.equalsIgnoreCase("</DPSerialization>")) {
+		while (line!=null && (!line.equalsIgnoreCase("</DPSerialization>"))) {
 			line = line.trim();
 			if (line.equalsIgnoreCase("<DPSerialization>") || (line.equalsIgnoreCase("</complexType>"))) {
 				line = file.readLine();
@@ -32,8 +31,8 @@ public class XMLDeSerializationStrategy {
 			line = line.trim();
 			myArray = line.split(" ");
 			if (myArray[0].substring(1).equalsIgnoreCase("complexType")) {
-				myArray = myArray[2].split("\"");
-				className = myArray[0];
+				myArray = myArray[1].split("\"");
+				className = myArray[1];
 			} else {
 				fieldName = myArray[0].substring(1);
 				Pattern type = Pattern.compile("xsd:(.*?)\">");
@@ -103,6 +102,10 @@ public class XMLDeSerializationStrategy {
 			System.exit(0);
 		}
 		return s;
+	}
+
+	@Override
+	public void processInput(SerializableObject sObject) {
 	}
 
 }

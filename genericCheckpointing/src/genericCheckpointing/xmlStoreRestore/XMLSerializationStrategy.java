@@ -24,6 +24,7 @@ public class XMLSerializationStrategy implements SerStrategy {
 		  map.put("short", "short");
 		  map.put("float", "float");
 		  map.put("long", "long");
+		  map.put("boolean", "boolean");
 		  
 		  return map;
 	}
@@ -36,9 +37,8 @@ public class XMLSerializationStrategy implements SerStrategy {
 	public void processInput(SerializableObject sObject) {
 		  map = mapTypes(map);
 		  try{
-
 			  result.storeNewResult("<DPSerialization>\n");
-			  result.storeNewResult("  <complexType xsi:type=\""+sObject.getClass()+"\">\n");
+			  result.storeNewResult("  <complexType xsi:type=\""+sObject.getClass().getName()+"\">\n");
 
 			for (Field field : sObject.getClass().getDeclaredFields())
 			{
@@ -46,6 +46,22 @@ public class XMLSerializationStrategy implements SerStrategy {
 				String type = field.getType().toString();
 				type= map.get(type);
 				Object value = field.get(sObject);
+				//System.out.println(value.toString());
+				if(type.equals("int") && Integer.parseInt(value.toString()) < 10) {
+					continue;
+				}	
+				else if(type.equals("long") && Long.parseLong((value.toString()))<10) {
+					continue;
+				}
+				else if(type.equals("float") && Float.parseFloat((value.toString()))<10) {
+					continue;
+				}
+				else if(type.equals("short") && Short.parseShort((value.toString()))<10) {
+					continue;
+				}
+				else if(type.equals("double") && Double.parseDouble((value.toString()))<10) {
+					continue;
+				}
 				result.storeNewResult("    <"+field.getName()+" xsi:type=\"xsd:"+type+"\">"+value.toString()+"</"+field.getName()+">\n");
 			}
 			result.storeNewResult("  </complexType>\n");
